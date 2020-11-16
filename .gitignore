@@ -1,0 +1,18 @@
+# Logs e bancos de dados #
+# ###########################
+* .log
+* .sql
+* .sqlite
+
+# Arquivos gerados pelo sistema operacional #
+# ###########################
+.DS_Store
+.DS_Store ?
+._ *
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+
+TrabalhoRondado/App.config

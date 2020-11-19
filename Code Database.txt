@@ -1,6 +1,12 @@
+CREATE SEQUENCE clientes_item_seq 
+START 525
+INCREMENT 1 
+MINVALUE 525 
+MAXVALUE 9223372036854775807;
+
 CREATE TABLE clientes(
 
-id INTEGER,
+id INTEGER DEFAULT NEXTVAL ('clientes_item_seq'),
 nome TEXT CONSTRAINT nn_ClientesNovos_nome NOT NULL,
 endereco TEXT,
 num_end TEXT,

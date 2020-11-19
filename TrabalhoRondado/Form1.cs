@@ -25,12 +25,17 @@ namespace TrabalhoRondado
         private void addClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             addCrud add = new addCrud();
-            add.ShowDialog();
+            add.ShowDialog(); //opens the window for adding new customer
         }
 
         private void sAIRToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void oPÇÕESToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

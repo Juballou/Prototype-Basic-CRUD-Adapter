@@ -16,7 +16,19 @@ namespace TrabalhoRondado
 {
     public partial class addCrud : Form
     {
-        public addCrud()
+        String nome;
+        String telefone;
+        String celular;
+        String email;
+        String endereco;
+        String numero;
+        String bairro;
+        String cep;
+        String cpfcnpj;
+
+        Adapter adapter = new Adapter(); //adapter class instance
+
+        public addCrud() // button to release all lines
         {
             InitializeComponent();
 
@@ -31,10 +43,13 @@ namespace TrabalhoRondado
             txt_cep.Enabled = false;
             txt_bairro.Enabled = false;
             txt_pesquisanome.Enabled = false;
-        }
 
 
-        protected string StringConn { get; } = ConfigurationManager.ConnectionStrings["Databasecrud"].ConnectionString;
+    }
+
+ 
+
+        protected string StringConn { get; } = ConfigurationManager.ConnectionStrings["Databasecrud"].ConnectionString; // Database connection string PostgreSQL
 
 
         private void label1_Click(object sender, EventArgs e)
@@ -62,46 +77,24 @@ namespace TrabalhoRondado
 
         }
 
-        private void btn_salvar_Click(object sender, EventArgs e) //botando de salvar
+        
+        private void btn_salvar_Click(object sender, EventArgs e) //save button using adapter class
         {
+            
             using (var conn = new NpgsqlConnection(StringConn))
             {
 
-                string sql = "insert into clientes (id, nome, telefone, celular, email, endereco, num_end, bairro_end, cep_end, cnpj_cpf) values(@id, @nome, @telefone, @celular, @email, @endereco, @num_end, @bairro_end, @cep_end, @cnpj_cpf)";
+                nome = txt_nome.Text;
+                telefone = txt_telefone.Text;
+                celular = txt_celular.Text;
+                email = txt_email.Text;
+                endereco = txt_endereco.Text;
+                numero = txt_numero.Text;
+                bairro = txt_bairro.Text;
+                cep = txt_cep.Text;
+                cpfcnpj = txt_cnpjcpf.Text;
 
-                NpgsqlCommand comando = new NpgsqlCommand(sql, conn);
-
-
-                comando.Parameters.Add("@id", NpgsqlTypes.NpgsqlDbType.Integer).Value = txt_id.Text;
-                comando.Parameters.Add("@nome", NpgsqlTypes.NpgsqlDbType.Text).Value = txt_nome.Text;
-                comando.Parameters.Add("@telefone", NpgsqlTypes.NpgsqlDbType.Text).Value = txt_telefone.Text;
-                comando.Parameters.Add("@celular", NpgsqlTypes.NpgsqlDbType.Text).Value = txt_celular.Text;
-                comando.Parameters.Add("@email", NpgsqlTypes.NpgsqlDbType.Text).Value = txt_email.Text;
-                comando.Parameters.Add("@endereco", NpgsqlTypes.NpgsqlDbType.Text).Value = txt_endereco.Text;
-                comando.Parameters.Add("@num_end", NpgsqlTypes.NpgsqlDbType.Text).Value = txt_numero.Text;
-                comando.Parameters.Add("@bairro_end", NpgsqlTypes.NpgsqlDbType.Text).Value = txt_bairro.Text;
-                comando.Parameters.Add("@cep_end", NpgsqlTypes.NpgsqlDbType.Text).Value = txt_cep.Text;
-                comando.Parameters.Add("@cnpj_cpf", NpgsqlTypes.NpgsqlDbType.Text).Value = txt_cnpjcpf.Text;
-
-                try
-                {
-                    conn.Open();
-
-                    comando.Parameters[0].Value = Convert.ToInt32(txt_id.Text);
-                    comando.ExecuteNonQuery();
-
-                    MessageBox.Show("Cadastro Efetuado com Sucesso");
-                }
-
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-
-                finally
-                {
-                    conn.Close();
-                }
+                adapter.Salvar(nome, telefone, celular, email, endereco, numero, bairro, cep, cpfcnpj);
 
                 txt_pesquisanome.Enabled = true;
 
@@ -119,9 +112,9 @@ namespace TrabalhoRondado
             }
         }
 
-        private void btn_add_Click(object sender, EventArgs e) // botao de adicionar
+        private void btn_add_Click(object sender, EventArgs e) //add button
         {
-            txt_id.Enabled = true;
+            txt_id.Enabled = false;
             txt_nome.Enabled = true;
             txt_telefone.Enabled = true;
             txt_celular.Enabled = true;
@@ -150,7 +143,7 @@ namespace TrabalhoRondado
 
         }
 
-        private void btn_buscar_Click(object sender, EventArgs e)
+        private void btn_buscar_Click(object sender, EventArgs e) // seek button
         {
             using (var conn = new NpgsqlConnection(StringConn))
             {
@@ -210,7 +203,7 @@ namespace TrabalhoRondado
             }
         }
 
-        private void btn_editar_Click(object sender, EventArgs e)
+        private void btn_editar_Click(object sender, EventArgs e) //seek button
         {
             using (var conn = new NpgsqlConnection(StringConn))
             {
@@ -234,7 +227,7 @@ namespace TrabalhoRondado
                 {
                     conn.Open();
 
-                    comando.Parameters[0].Value = Convert.ToInt32(txt_id.Text);
+                    comando.Parameters[0].Value = Convert.ToInt32(txt_id.Text); // converting string to integer
 
                     comando.ExecuteNonQuery();
 
@@ -264,7 +257,7 @@ namespace TrabalhoRondado
             }
         }
 
-        private void btn_excluir_Click(object sender, EventArgs e)
+        private void btn_excluir_Click(object sender, EventArgs e) // delete button
         {
             using (var conn = new NpgsqlConnection(StringConn))
             {

@@ -78,10 +78,10 @@ namespace TrabalhoRondado
             // 
             this.btn_add.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_add.BackgroundImage")));
             this.btn_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btn_add.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.btn_add.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_add.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_add.Location = new System.Drawing.Point(12, 12);
+            this.btn_add.Location = new System.Drawing.Point(21, 12);
             this.btn_add.Name = "btn_add";
             this.btn_add.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btn_add.Size = new System.Drawing.Size(72, 89);
@@ -247,7 +247,8 @@ namespace TrabalhoRondado
             // 
             this.btn_salvar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_salvar.BackgroundImage")));
             this.btn_salvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btn_salvar.Location = new System.Drawing.Point(99, 12);
+            this.btn_salvar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_salvar.Location = new System.Drawing.Point(112, 12);
             this.btn_salvar.Name = "btn_salvar";
             this.btn_salvar.Size = new System.Drawing.Size(73, 89);
             this.btn_salvar.TabIndex = 21;
@@ -260,9 +261,10 @@ namespace TrabalhoRondado
             // 
             this.btn_buscar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_buscar.BackgroundImage")));
             this.btn_buscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btn_buscar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_buscar.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btn_buscar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_buscar.Location = new System.Drawing.Point(188, 12);
+            this.btn_buscar.Location = new System.Drawing.Point(206, 12);
             this.btn_buscar.Name = "btn_buscar";
             this.btn_buscar.Size = new System.Drawing.Size(75, 89);
             this.btn_buscar.TabIndex = 22;
@@ -275,8 +277,9 @@ namespace TrabalhoRondado
             // 
             this.btn_excluir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_excluir.BackgroundImage")));
             this.btn_excluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btn_excluir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_excluir.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btn_excluir.Location = new System.Drawing.Point(373, 12);
+            this.btn_excluir.Location = new System.Drawing.Point(395, 12);
             this.btn_excluir.Name = "btn_excluir";
             this.btn_excluir.Size = new System.Drawing.Size(75, 89);
             this.btn_excluir.TabIndex = 23;
@@ -289,7 +292,8 @@ namespace TrabalhoRondado
             // 
             this.btn_editar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_editar.BackgroundImage")));
             this.btn_editar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btn_editar.Location = new System.Drawing.Point(283, 12);
+            this.btn_editar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_editar.Location = new System.Drawing.Point(301, 12);
             this.btn_editar.Name = "btn_editar";
             this.btn_editar.Size = new System.Drawing.Size(73, 89);
             this.btn_editar.TabIndex = 24;
@@ -348,6 +352,7 @@ namespace TrabalhoRondado
             this.Controls.Add(this.txt_telefone);
             this.Controls.Add(this.txt_pesquisanome);
             this.Name = "addCrud";
+            this.ShowIcon = false;
             this.Text = "CRUD";
             this.Load += new System.EventHandler(this.addCrud_Load);
             this.ResumeLayout(false);

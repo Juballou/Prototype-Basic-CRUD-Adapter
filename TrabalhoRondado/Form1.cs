@@ -14,7 +14,7 @@ namespace TrabalhoRondado
     {
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent(); //inicializa o Form
         }
 
         private void Form1_Load(object sender, EventArgs e)

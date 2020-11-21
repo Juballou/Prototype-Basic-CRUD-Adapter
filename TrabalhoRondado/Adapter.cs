@@ -16,6 +16,7 @@ namespace TrabalhoRondado
 
         }
 
+        //String de conexão com o banco;
         protected string StringConn { get; } = ConfigurationManager.ConnectionStrings["Databasecrud"].ConnectionString;
 
         public void Salvar(string nome, string telefone, string celular, string email, string endereco, string numero, string bairro, string cep, string cpf){

@@ -28,10 +28,14 @@ namespace TrabalhoRondado
 
         Adapter adapter = new Adapter(); //adapter class instance
 
+        //String de conexão com o banco
+        protected string StringConn { get; } = ConfigurationManager.ConnectionStrings["Databasecrud"].ConnectionString; // Database connection string PostgreSQL
+
         public addCrud() // button to release all lines
         {
-            InitializeComponent();
+            InitializeComponent(); //Inicializa janela
 
+            //Deixa caixas de texto desabilitadas
             txt_id.Enabled = false;
             txt_nome.Enabled = false;
             txt_telefone.Enabled = false;
@@ -44,46 +48,39 @@ namespace TrabalhoRondado
             txt_bairro.Enabled = false;
             txt_pesquisanome.Enabled = false;
 
+        }
+       
 
-    }
-
- 
-
-        protected string StringConn { get; } = ConfigurationManager.ConnectionStrings["Databasecrud"].ConnectionString; // Database connection string PostgreSQL
-
-
-        private void label1_Click(object sender, EventArgs e)
+        private void btn_add_Click(object sender, EventArgs e) //add button
         {
+            //Habilita Caixas de escrita
+            txt_id.Enabled = false;
+            txt_nome.Enabled = true;
+            txt_telefone.Enabled = true;
+            txt_celular.Enabled = true;
+            txt_cnpjcpf.Enabled = true;
+            txt_email.Enabled = true;
+            txt_endereco.Enabled = true;
+            txt_numero.Enabled = true;
+            txt_cep.Enabled = true;
+            txt_bairro.Enabled = true;
+            txt_pesquisanome.Enabled = true;
 
+            //Limpa os campos
+            txt_id.Clear();
+            txt_nome.Clear();
+            txt_telefone.Clear();
+            txt_celular.Clear();
+            txt_email.Clear();
+            txt_endereco.Clear();
+            txt_numero.Clear();
+            txt_bairro.Clear();
+            txt_cep.Clear();
+            txt_cnpjcpf.Clear();
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void addCrud_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        
         private void btn_salvar_Click(object sender, EventArgs e) //save button using adapter class
         {
-            
-            using (var conn = new NpgsqlConnection(StringConn))
-            {
-
                 nome = txt_nome.Text;
                 telefone = txt_telefone.Text;
                 celular = txt_celular.Text;
@@ -109,42 +106,12 @@ namespace TrabalhoRondado
                 txt_cep.Clear();
                 txt_cnpjcpf.Clear();
 
-            }
         }
 
-        private void btn_add_Click(object sender, EventArgs e) //add button
-        {
-            txt_id.Enabled = false;
-            txt_nome.Enabled = true;
-            txt_telefone.Enabled = true;
-            txt_celular.Enabled = true;
-            txt_cnpjcpf.Enabled = true;
-            txt_email.Enabled = true;
-            txt_endereco.Enabled = true;
-            txt_numero.Enabled = true;
-            txt_cep.Enabled = true;
-            txt_bairro.Enabled = true;
-            txt_pesquisanome.Enabled = true;
-
-            txt_id.Clear();
-            txt_nome.Clear();
-            txt_telefone.Clear();
-            txt_celular.Clear();
-            txt_email.Clear();
-            txt_endereco.Clear();
-            txt_numero.Clear();
-            txt_bairro.Clear();
-            txt_cep.Clear();
-            txt_cnpjcpf.Clear();
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btn_buscar_Click(object sender, EventArgs e) // seek button
         {
+            //metodo de conexão com o banco
             using (var conn = new NpgsqlConnection(StringConn))
             {
 
@@ -152,9 +119,7 @@ namespace TrabalhoRondado
 
                 NpgsqlCommand comando = new NpgsqlCommand(sql, conn);
 
-
                 comando.Parameters.Add("@pesquisanome", NpgsqlTypes.NpgsqlDbType.Text).Value = txt_pesquisanome.Text;
-               
 
                 try
                 {
@@ -298,6 +263,36 @@ namespace TrabalhoRondado
                 txt_cep.Clear();
                 txt_cnpjcpf.Clear();
             }
-        }   
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addCrud_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

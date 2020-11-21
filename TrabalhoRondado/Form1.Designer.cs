@@ -66,7 +66,7 @@ namespace TrabalhoRondado
             // addClienteToolStripMenuItem
             // 
             this.addClienteToolStripMenuItem.Name = "addClienteToolStripMenuItem";
-            this.addClienteToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.addClienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addClienteToolStripMenuItem.Text = "add Cliente";
             this.addClienteToolStripMenuItem.Click += new System.EventHandler(this.addClienteToolStripMenuItem_Click);
             // 

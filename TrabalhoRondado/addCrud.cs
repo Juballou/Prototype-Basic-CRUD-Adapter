@@ -168,7 +168,7 @@ namespace TrabalhoRondado
             }
         }
 
-        private void btn_editar_Click(object sender, EventArgs e) //seek button
+        private void btn_editar_Click(object sender, EventArgs e) //edit button
         {
             using (var conn = new NpgsqlConnection(StringConn))
             {
